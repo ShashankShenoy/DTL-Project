@@ -252,6 +252,17 @@ class vtvt {
 						parent.ctx.fillText(this.label, this.label_x, this.label_y);
 						parent.ctx.closePath();
 					}
+
+					//Ours
+					if (this.label) {
+						parent.ctx.beginPath();
+						parent.ctx.font = "12px Arial";
+						parent.ctx.fillStyle = this.line_col;
+						// Include coordinates in the label
+						let labelWithCoords = `${this.label} (${this.coord_x.toFixed(2)}, ${this.coord_y.toFixed(2)})`;
+						parent.ctx.fillText(labelWithCoords, this.label_x, this.label_y);
+						parent.ctx.closePath();
+					}
 				}
 			}
 		}
@@ -373,6 +384,8 @@ class vtvt {
 			parent.ctx.fillText(Math.round(parent.vectors[1].coord_y*100)/100, 80, 35);
 			parent.ctx.closePath();
 		}
+
+
 
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		drawGrid();
