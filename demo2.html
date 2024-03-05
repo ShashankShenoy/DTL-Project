@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+    <head>
+    <title>vtvt demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vtvt_demo_styles.css">
+    <script type="text/javascript" src="vtvt.js"></script>
+</head>
+<body>
+
+    <h3>Demo canvas #2</h3>
+    <p>Another illustration of vector addition</p>
+    <div class="canvas-wrapper">
+        <canvas id='vector_canvas_2' class="canvas-wrapped"></canvas>
+    </div> 
+   
+
+    <script>
+        // *************************************************************************************************	 
+        // Demo canvas 2
+        
+        // initialize the scene
+        var scene2 = new vtvt({canvas_id: "vector_canvas_2", grid_res: 16, circle_rad: 0.5, show_matrix: false, show_eig: false});
+
+        // vector , can be dragged    
+        scene2.addVector({coords: [-2, -4], c: "190, 160, 0", draggable: true, kind: 'vector', label: "v1"});   
+
+        scene2.addVector({coords: [-1, 7], c: "0, 160, 190", draggable: true, kind: 'vector', label: "v2", map_coords: function(){ 
+                return {
+                    mapXo: scene2.vectors[0].coord_x, 
+                    mapYo: scene2.vectors[0].coord_y
+                };
+            }  });    
+        
+        scene2.addVector({coords: [6, 1], c: "190, 0, 190", draggable: true, kind: 'vector', label: "v3", map_coords: function(){ 
+                return {
+                    mapXo: scene2.vectors[0].coord_x + scene2.vectors[1].coord_x, 
+                    mapYo: scene2.vectors[0].coord_y + scene2.vectors[1].coord_y
+                };
+            }  });    
+            
+        scene2.addVector({c: "200,200,200", draggable: true, kind: 'vector', draggable: false, label: "     v1+v2+v3", map_coords: function(){ 
+                return {
+                    mapX: scene2.vectors[0].coord_x + scene2.vectors[1].coord_x + scene2.vectors[2].coord_x, 
+                    mapY: scene2.vectors[0].coord_y + scene2.vectors[1].coord_y + scene2.vectors[2].coord_y
+                };
+            }  });           
+       
+            
+
+
+        // render
+        scene2.render();
+        	
+    </script>
+    <button class="button" onclick="ResetBack()">Go Back Home</button>
+    <script>
+        function ResetBack(){
+            window.close();
+        }
+    </script>
+</body>
+</html>

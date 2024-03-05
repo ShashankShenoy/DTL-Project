@@ -1,10 +1,17 @@
+.body {
+    background-color: #449980;
+}
 .canvas-wrapper {
     display: block;
     position: relative;
     margin-top: 1rem;
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem; 
+    
+}
   
 .canvas-wrapped {
+    padding-bottom: 10px;
+    background-color: bisque;
     display: block;
     position: relative;
     margin-left: auto;
@@ -21,14 +28,21 @@
       .canvas-wrapped {
         width: 65vmin;
         height: 65vmin; } }
-h3 {
+h2 {
     text-align: center;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
+    font-family: monospace;
+    font-size: large; 
+    padding-bottom: 30px;
 }
 
 p {
+    font-family: monospace;
+    font-size: larger;
+    font-weight: 100;
     text-align: center;
     margin-bottom: 1rem; 
+    padding-bottom: 30px;
 }
 
 button {
